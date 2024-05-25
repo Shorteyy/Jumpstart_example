@@ -1,6 +1,7 @@
 connection: "retail_bigquery"
 
 include: "/views/**/*.view.lkml"
+include: "/LookML_Dashboards/**/*.dashboard"
 
 datagroup: retail_demo_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
