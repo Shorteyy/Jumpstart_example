@@ -8,9 +8,11 @@ view: orders {
     sql: ${TABLE}.order_id ;;
   }
   dimension_group: created {
+    view_label: "_PoP"
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date, week, month, month_num, month_name, quarter, year]
     sql: ${TABLE}.created_at ;;
+    convert_tz: no
   }
   dimension_group: delivered {
     type: time

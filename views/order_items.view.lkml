@@ -67,6 +67,19 @@ view: order_items {
     filters: [products.name: "-%Socks%"]
   }
 
+  measure: total_sale_price {
+    type: sum
+    sql: ${sale_price} ;;
+    value_format: "[>=1000000] $#,##0.0,,\"M\";[<1000000] $#,##0.0,\"K\";General"
+  }
+
+  measure: average_sale_price {
+    type: average
+    sql: ${sale_price} ;;
+    value_format_name: usd
+  }
+
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [

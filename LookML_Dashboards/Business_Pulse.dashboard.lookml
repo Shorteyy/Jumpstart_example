@@ -34,7 +34,7 @@
     height: 4
   - title: Average Order Sale Price
     name: Average Order Sale Price
-    model: retail_demo
+    model: retail_example
     explore: order_items
     type: single_value
     fields: [order_items.average_sale_price]
@@ -57,7 +57,7 @@
     height: 4
   - title: Total Sales, Year over Year
     name: Total Sales, Year over Year
-    model: retail_demo
+    model: retail_example
     explore: order_items
     type: looker_line
     fields: [order_items.total_sale_price, orders.created_month_name, orders.created_year]
@@ -121,7 +121,7 @@
     height: 6
   - title: Highest Spending Users
     name: Highest Spending Users
-    model: retail_demo
+    model: retail_example
     explore: order_items
     type: looker_google_map
     fields: [order_items.total_sale_price, users.location, users.first_name, users.last_name]
@@ -205,7 +205,7 @@
     height: 6
   - title: Most Popular Brands
     name: Most Popular Brands
-    model: retail_demo
+    model: retail_example
     explore: order_items
     type: looker_grid
     fields: [order_items.total_sale_price, inventory_items.product_brand, orders.count]
@@ -281,7 +281,7 @@
     height: 6
   - title: Sales Funnel Webtraffic
     name: Sales Funnel Webtraffic
-    model: retail_demo
+    model: retail_example
     explore: events
     type: looker_funnel
     fields: [events.event_type, events.count]
@@ -343,7 +343,7 @@
     height: 5
   - title: Traffic By Source
     name: Traffic By Source
-    model: retail_demo
+    model: retail_example
     explore: order_items
     type: looker_column
     fields: [users.traffic_source, order_items.total_sale_price, order_items.created_date]
@@ -412,7 +412,7 @@
     height: 6
   - name: Orders without socks
     title: Orders without socks
-    model: retail_demo
+    model: retail_example
     explore: order_items
     type: looker_column
     fields: [order_items.status, order_items.orders_without_socks]
