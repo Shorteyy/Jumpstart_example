@@ -8,7 +8,7 @@
   elements:
   - title: New Users Acquired This Year
     name: New Users Acquired This Year
-    model: retail_demo
+    model: retail_example
     explore: users
     type: single_value
     fields: [users.count, users.user_goal]
