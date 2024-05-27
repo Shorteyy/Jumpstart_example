@@ -1,32 +1,44 @@
 view: returning_users {
   derived_table: {
-    sql: SELECT count(users_id)
-      FROM (SELECT
+    sql:
+      SELECT
           users.id  AS users_id,
+          users.first_name as first_name,
+          users.last_name as last_name,
           COUNT(orders.order_id ) AS orders_count
       FROM `thelook_ecommerce.users`  AS users
       LEFT JOIN `thelook_ecommerce.orders`  AS orders ON users.id = orders.user_id
       GROUP BY
-          1
+          1, 2, 3
       HAVING COUNT(orders.order_id ) > 1
       ORDER BY
-          2) ;;
+          4;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [detail*]
+  dimension: user_id {
+    primary_key: yes
+    type: string
+    sql: ${TABLE}.users_id ;;
   }
 
-  dimension: f0_ {
-    label: "Repeat Purchasers"
+  dimension: first_name {
+    type: string
+    sql: ${TABLE}.first_name ;;
+  }
+
+  dimension: last_name {
+    type: string
+    sql: ${TABLE}.last_name ;;
+  }
+
+  dimension: qty {
     type: number
-    sql: ${TABLE}.f0_ ;;
+    sql: ${TABLE}.orders_count ;;
   }
 
-  set: detail {
-    fields: [
-      f0_
-    ]
+  measure: total_buys {
+    type: sum
+    sql: ${qty} ;;
   }
+
 }

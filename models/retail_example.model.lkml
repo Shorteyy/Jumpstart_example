@@ -10,6 +10,8 @@ datagroup: retail_demo_default_datagroup {
 
 persist_with: retail_demo_default_datagroup
 
+explore: returning_users {}
+
 explore: inventory_items {
   join: products {
     type: left_outer
