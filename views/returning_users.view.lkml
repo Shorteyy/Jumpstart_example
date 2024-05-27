@@ -1,7 +1,5 @@
 view: returning_users {
   derived_table: {
-
-    persist_for: "24 hours"
     sql:
       SELECT
           users.id  AS users_id,
