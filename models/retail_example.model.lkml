@@ -29,6 +29,8 @@ explore: inventory_items {
 explore: distribution_centers {}
 
 explore: orders {
+  label: "orders 1"
+
   join: users {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
