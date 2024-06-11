@@ -16,6 +16,7 @@ view: products {
     sql: ${TABLE}.category ;;
   }
   dimension: cost {
+    hidden: yes
     type: number
     sql: ${TABLE}.cost ;;
   }

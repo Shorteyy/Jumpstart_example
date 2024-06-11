@@ -31,6 +31,11 @@ view: returning_users {
     sql: ${TABLE}.last_name ;;
   }
 
+  dimension: full_name {
+    type: string
+    sql: CONCAT(${first_name}, ${last_name}) ;;
+  }
+
   dimension: qty {
     type: number
     sql: ${TABLE}.orders_count ;;
