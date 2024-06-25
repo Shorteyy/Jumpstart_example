@@ -39,6 +39,7 @@ view: users {
     type: string
     map_layer_name: countries
     sql: ${TABLE}.country ;;
+    html: <a href='https://www.google.com/search?q={{value}}'>{{rendered_value}}</a> ;;
   }
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
@@ -119,6 +120,7 @@ view: users {
     type: count_distinct
     sql: ${id} ;;
     # value_format: "[>=1000000] #,##0.0,,\"M\";[<1000000] #,##0.0,\"K\";General"
+    drill_fields: [detail*]
   }
 
   # ----- Sets of fields for drilling ------
@@ -126,6 +128,7 @@ view: users {
     fields: [
       id,
       last_name,
+      country,
       first_name,
       orders.count,
       events.count,
