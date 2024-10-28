@@ -34,13 +34,6 @@ view: users {
     type: string
     sql: ${TABLE}.city ;;
   }
-
-  dimension: country {
-    type: string
-    map_layer_name: countries
-    sql: ${TABLE}.country ;;
-    html: <a href='https://www.google.com/search?q={{value}}'>{{rendered_value}}</a> ;;
-  }
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
 
@@ -114,6 +107,13 @@ view: users {
     type: number
     sql: 60000 ;;
     # value_format: "[>=1000000] #,##0.0,,\"M\";[<1000000] #,##0.0,\"K\";General"
+  }
+
+  dimension: country {
+    type: string
+    map_layer_name: countries
+    sql: ${TABLE}.country ;;
+    html: <a href='https://www.google.com/search?q={{value}}'>{{rendered_value}}</a> ;;
   }
 
   measure: unique_users {
