@@ -81,7 +81,7 @@ access_grant: can_view_order_items {
 
 explore: order_items {
 
-  required_access_grants: [can_view_order_items]
+  # required_access_grants: [can_view_order_items]
 
   # access_filter: {
   #   field: users.country
