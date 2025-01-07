@@ -10,6 +10,20 @@ datagroup: retail_demo_default_datagroup {
 
 persist_with: retail_demo_default_datagroup
 
+map_layer: belgian_provinces {
+  # feature_key: "ISO_A3"
+  file: "/shapefiles/be.json"
+  format: topojson
+  label: "Belgian provinces"
+  max_zoom_level: 12
+  min_zoom_level: 2
+  projection: airy
+  property_key: "ID"
+  property_label_key: "NAME"
+}
+
+explore: provinces_be {}
+
 explore: returning_users {}
 
 explore: inventory_items {

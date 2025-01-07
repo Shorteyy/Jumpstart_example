@@ -79,6 +79,15 @@ view: orders {
   measure: count {
     type: count
     drill_fields: [order_id, users.last_name, users.first_name, order_items.count]
+    html:
+    {% if status._value == 'Complete' %}
+    <p style="color: black; background-color: lightgreen;">{{ value }}</p>
+    {% elsif status._value == 'Processing' %}
+    <p style="color: black; background-color: orange;">{{ value }}</p>
+    {% else %}
+    <p style="color: white; background-color: red;">{{ value }}</p>
+    {% endif %}
+    ;;
   }
 
   measure: goal {
