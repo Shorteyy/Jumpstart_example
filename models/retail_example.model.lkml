@@ -11,7 +11,6 @@ datagroup: retail_demo_default_datagroup {
 persist_with: retail_demo_default_datagroup
 
 map_layer: belgian_provinces {
-  # feature_key: "ISO_A3"
   file: "/shapefiles/be.json"
   format: topojson
   label: "Belgian provinces"
@@ -21,6 +20,19 @@ map_layer: belgian_provinces {
   property_key: "ID"
   property_label_key: "NAME"
 }
+
+map_layer: statistical {
+  file: "/shapefiles/statistical.json"
+  format: topojson
+  label: "Belgian local authorities"
+  max_zoom_level: 10
+  min_zoom_level: 1
+  projection: polyconic
+  property_key: "niscode"
+  property_label_key: "niscode"
+}
+
+explore: local_authorities {}
 
 explore: provinces_be {}
 
