@@ -92,7 +92,7 @@ view: orders {
           name: "Shipped"
           label: "Shipped"
         }
-        default: "processing"
+        default: "Processing"
       }
     }
   }
