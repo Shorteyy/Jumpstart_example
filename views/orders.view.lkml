@@ -65,7 +65,7 @@ view: orders {
     sql: ${TABLE}.status ;;
   }
   dimension: update_status{
-    type: number
+    type: string
     sql: ${TABLE}.status ;;
     action: {
       label: "Update status"
