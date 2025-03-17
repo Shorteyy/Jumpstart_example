@@ -9,7 +9,10 @@ view: dashboardsummary {
   dimension: summary {
     type: string
     sql: ${TABLE}.summary ;;
-    html: <p style="font-size: 14px">{{value}}}}</p> ;;
+    # html: <div style="width:90%;"><font size="2"><center><span>{{rendered_value}}</span></font></center></div> ;;
+    html:  <div style="white-space: pre-wrap; word-wrap: break-word; max-width: 100%; font-size=14px;">
+  {{ value }}
+</div> ;;
   }
   measure: count {
     type: count
