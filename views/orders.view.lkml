@@ -81,15 +81,15 @@ view: orders {
         description: "Check whether or not fraud."
         required: yes
         option: {
-          name: "processing"
+          name: "Processing"
           label: "Processing"
         }
         option: {
-          name: "complete"
+          name: "Complete"
           label: "Complete"
         }
         option: {
-          name: "shipped"
+          name: "Shipped"
           label: "Shipped"
         }
         default: "processing"
