@@ -69,7 +69,7 @@ view: orders {
     sql: ${TABLE}.status ;;
     action: {
       label: "Update status"
-      url: "https://us-central1-agiliz-279110.cloudfunctions.net/update_fraud" # In here you put the url to the cloud function
+      url: "https://update-status-rightback-226321764319.europe-west1.run.app" # In here you put the url to the cloud function
       param: {
         name:"OrderID"
         value:"{{orders.order_id._value}}"
