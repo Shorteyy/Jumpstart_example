@@ -64,6 +64,38 @@ view: orders {
     type: string
     sql: ${TABLE}.status ;;
   }
+  dimension: update_status{
+    type: number
+    sql: ${TABLE}.status ;;
+    action: {
+      label: "Update status"
+      url: "https://us-central1-agiliz-279110.cloudfunctions.net/update_fraud" # In here you put the url to the cloud function
+      param: {
+        name:"OrderID"
+        value:"{{orders.order_id._value}}"
+      }
+      form_param: {
+        name: "is_denied"
+        type: select
+        label: "Approval status"
+        description: "Check whether or not fraud."
+        required: yes
+        option: {
+          name: "processing"
+          label: "Processing"
+        }
+        option: {
+          name: "complete"
+          label: "Complete"
+        }
+        option: {
+          name: "shipped"
+          label: "Shipped"
+        }
+        default: "processing"
+      }
+    }
+  }
 
   dimension: user_id {
     type: number
