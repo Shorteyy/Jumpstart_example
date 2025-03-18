@@ -25,7 +25,7 @@ view: events {
     sql: ${TABLE}.event_type ;;
   }
   dimension: ip_address {
-    type: string
+    type: date
     sql: ${TABLE}.ip_address ;;
   }
   dimension: postal_code {
