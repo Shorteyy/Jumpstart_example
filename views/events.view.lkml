@@ -29,7 +29,7 @@ view: events {
     sql: ${TABLE}.ip_address ;;
   }
   dimension: postal_code {
-    type: string
+    type: date
     sql: ${TABLE}.postal_code ;;
   }
   dimension: sequence_number {
