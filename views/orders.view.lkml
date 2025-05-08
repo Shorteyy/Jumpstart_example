@@ -111,15 +111,24 @@ view: orders {
   measure: count {
     type: count
     drill_fields: [order_id, users.last_name, users.first_name, order_items.count]
-    html:
-    {% if status._value == 'Complete' %}
-    <p style="color: black; background-color: lightgreen;">{{ value }}</p>
-    {% elsif status._value == 'Processing' %}
-    <p style="color: black; background-color: orange;">{{ value }}</p>
-    {% else %}
-    <p style="color: white; background-color: red;">{{ value }}</p>
-    {% endif %}
-    ;;
+    # html:
+    # {% if status._value == 'Complete' %}
+    # <p style="color: black; background-color: lightgreen;">{{ value }}</p>
+    # {% elsif status._value == 'Processing' %}
+    # <p style="color: black; background-color: orange;">{{ value }}</p>
+    # {% else %}
+    # <p style="color: white; background-color: red;">{{ value }}</p>
+    # {% endif %}
+    # ;;
+  }
+
+  measure: order_count_last_year {
+    type: period_over_period
+    description: "Order count from the previous year"
+    based_on: orders.count
+    based_on_time: orders.created_year
+    period: year
+    kind: previous
   }
 
   measure: goal {
