@@ -97,6 +97,40 @@ view: orders {
     }
   }
 
+  dimension: voorbeeld{
+    type: string
+    sql: "Klik hier";;
+    # html: <p>Klik hier</p> ;;
+    action: {
+      label: "Update status"
+      url: "https://update-status-rightback-226321764319.europe-west1.run.app" # In here you put the url to the cloud function
+      param: {
+        name:"OrderID"
+        value:"{{orders.order_id._value}}"
+      }
+      form_param: {
+        name: "is_denied"
+        type: select
+        label: "Approval status"
+        description: "Check whether or not fraud."
+        required: yes
+        option: {
+          name: "Processing"
+          label: "Processing"
+        }
+        option: {
+          name: "Complete"
+          label: "Complete"
+        }
+        option: {
+          name: "Shipped"
+          label: "Shipped"
+        }
+        default: "Processing"
+      }
+    }
+  }
+
   dimension: user_id {
     type: number
     # hidden: yes
